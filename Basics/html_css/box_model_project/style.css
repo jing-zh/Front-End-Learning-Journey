@@ -36,6 +36,8 @@ body {
     border-color: #68a3ff;
 }
 
+/* end of card decoration */
+
 /* icon */
 
 .icon {
@@ -53,6 +55,7 @@ body {
     background: #68a3ff;
 }
 
+/* end of icon */
 
 /* text */
 
@@ -65,6 +68,7 @@ body {
     line-height: 1.5;
     color: grey;
 }
+/* end of text */
 
 /* button */
 
@@ -85,3 +89,5 @@ body {
     background: #68a3ff;
     color: #ecf4ff;
 }
+
+/* end  */
