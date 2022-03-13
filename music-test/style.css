@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #4158d0;
+  background-image: linear-gradient(
+    43deg,
+    #4158d0 0%,
+    #c850c0 46%,
+    #ffcc70 100%
+  );
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lato", sans-serif;
+  margin: 0;
+}
+
+/* music container */
+
+.music-container {
+  background-color: #f5f5f5;
+  box-shadow: inset -1px -1px 5px rgba(33, 33, 33, 0.2),
+    inset 1px 1px 5px rgba(33, 33, 33, 0.3);
+  display: flex;
+  padding: 20px 30px;
+  position: relative;
+  margin: 100px 0;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.img-container {
+  position: relative;
+  width: 125px;
+}
+
+/* styling the image to look like a disc by placing a small circle in it*/
+
+/* .img-container::after {
+  content: "";
+  background: #efefef;
+  border: 1px solid #303030;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translate(-50%, 50%);
+} */
+
+.img-container img {
+  border-radius: 50%;
+  border: 10px solid #303030;
+  box-shadow: -7px 15px 20px -1px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  height: 125px;
+  width: inherit;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /* animation */
+  animation: rotate 3s linear infinite;
+  animation-play-state: paused;
+  /* 这里默认的是paused，但是在之后的javascript应该需要开启 */
+}
+
+/* make sure the image rotates only when the music is playing */
+
+.music-container.play .img-container img {
+  animation-play-state: running;
+}
+
+/* running是什么状态？ */
+
+/* create the animation keyframe and set the image to rotate 360 deg continuously */
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* navigation */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.action-btn {
+  border: 0;
+  border-radius: 20px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+  margin: 0 20px;
+}
+
+.action-btn.action-btn-big {
+  font-size: 30px;
+  /* 这个参数很重要，不然的话，那个中心白圈很难居中 */
+  outline: none;
+}
+
+.action-btn:focus {
+  outline: 0;
+}
+/* 这个focus是什么意思呢？？ */
+
+/* 
+=========
+music info
+=========
+*/
+
+.music-info {
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px 15px 0 0;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  width: calc(100% - 40px);
+  padding: 10px 10px 10px 150px;
+  opacity: 0;
+  transform: translateY(0%);
+  transition: transform 0.3s ease-in, opacity 0.3s ease-in;
+  z-index: 0;
+}
+
+/* music container的position是relative，所以这里是absolute，依照music container */
+
+.music-container.play .music-info {
+  opacity: 1;
+  transform: translateY(-100%);
+}
+
+.music-info h4 {
+  margin: 0;
+}
+
+/* 
+=========
+song progresser
+=========
+*/
+
+.progress-container {
+  background: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 10px 0;
+  height: 4px;
+  width: 100%;
+}
+
+/* styling the actual progress bar and making it flow along with the song*/
+
+.progress {
+  background: #fe8daa;
+  border-radius: 5px;
+  height: 100%;
+  width: 0%;
+  transition: width 0.1s linear;
+}
