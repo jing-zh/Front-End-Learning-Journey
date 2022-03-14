@@ -77,7 +77,7 @@ body {
   animation-play-state: running;
 }
 
-/* running是什么状态？ */
+/* 当music container包含play的时候，cover应该怎样做 */
 
 /* create the animation keyframe and set the image to rotate 360 deg continuously */
 
@@ -147,6 +147,8 @@ music info
   transform: translateY(-100%);
 }
 
+/* 在music container有play的情况下，music info要怎么改变 */
+
 .music-info h4 {
   margin: 0;
 }
@@ -169,9 +171,10 @@ song progresser
 /* styling the actual progress bar and making it flow along with the song*/
 
 .progress {
-  background: #fe8daa;
+  background: #ffcc70;
   border-radius: 5px;
   height: 100%;
   width: 0%;
   transition: width 0.1s linear;
 }
+/* width先从0起步 */
