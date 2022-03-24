@@ -1,0 +1,7 @@
+{
+  "emmet.triggerExpansionOnTab": true,
+  "reactSnippets.settings.prettierEnabled": true,
+  "editor.suggest.showWords": false,
+  "emmet.showSuggestionsAsSnippets": true,
+  "editor.snippetSuggestions": "top"
+}
