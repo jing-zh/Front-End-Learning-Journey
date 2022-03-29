@@ -1,3 +1,9 @@
 .App {
   min-height: 100%;
 }
+
+.App.dark {
+  background: #333;
+}
+/* n7 */
+/* 这里小心不要写成.App .dark，不要多空一格 */
