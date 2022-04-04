@@ -36,3 +36,15 @@ return 后面不要直接写 mode，而不写...state，不然就会创建一个
 空格：parent 下面 children
 不空格：同时拥有两个 class
 (App.css)
+
+## n8 - firestore (collection)
+
+(Home.js)
+
+## n9 - firestore(document)
+
+(Recipe.js)
+
+## n10 - firestore(real time data)
+
+(Home.js)

@@ -1,4 +1,4 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 // page components
 import NavBar from "./components/NavBar";
@@ -19,22 +19,14 @@ function App() {
       <BrowserRouter>
         <NavBar />
         <ThemeSelector />
-        <Switch>
-          <Route exact path="/">
-            {/* n3 */}
-            {/* Link home 的path要添加exact!!!否则当想要跳到单个recipe page的时候，还是会显示home page */}
-            <Home />
-          </Route>
-          <Route path="/create">
-            <Create />
-          </Route>
-          <Route path="/search">
-            <Search />
-          </Route>
-          <Route path="/recipes/:id">
-            <Recipe />
-          </Route>
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          {/* n3 */}
+          {/* Link home 的path要添加exact!!!否则当想要跳到单个recipe page的时候，还是会显示home page */}
+          <Route path="/create" element={<Create />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/recipes/:id" element={<Recipe />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );
